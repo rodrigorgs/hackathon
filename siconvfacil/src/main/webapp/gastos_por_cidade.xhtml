@@ -1,0 +1,45 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="/template/main.xhtml">
+
+	<ui:define name="body">
+		<h:form prependId="false"  >
+			<br />
+			<p:fieldset legend="Cidade" toggleable="true" toggleSpeed="500">
+
+				<h:outputText value="Cidade: " />
+				<p:autoComplete value="#{gastosPorCidadeMB.municipioSelecionado}" minQueryLength="3"  maxResults="15" completeMethod="#{gastosPorCidadeMB.completaCidade}" converter="MunicipioConverter" />
+				<p:commandButton value="Buscar" update="gastos" ajax="false" actionListener="#{gastosPorCidadeMB.atualizaCidade}" />
+				
+			</p:fieldset>
+			
+			
+
+			<p:panelGrid id="gastos">
+				<f:facet name="header">
+					<p:row>
+						<p:column>Qtd de Convênios</p:column>
+						<p:column>Valor Global</p:column>
+						<p:column>Valor de Repasse</p:column>
+						<p:column>Valor de Contra Partida</p:column>
+						<p:column>Valor de Contra Partida Financeira</p:column>
+						<p:column>Valor de Contra Partida de Bens de Serviço</p:column>
+					</p:row>
+				</f:facet>
+				<p:row>
+					<p:column>#{gastosPorCidadeMB.totalConvenios}</p:column>
+					<p:column>#{gastosPorCidadeMB.totalValorGlobal}</p:column>
+					<p:column>#{gastosPorCidadeMB.totalValorRepasse}</p:column>
+					<p:column>#{gastosPorCidadeMB.totalValorContraPartida}</p:column>
+					<p:column>#{gastosPorCidadeMB.totalValorContraPartidaFinanceira}</p:column>
+					<p:column>#{gastosPorCidadeMB.totalValorContraPartidaBensServico}</p:column>
+				</p:row>
+
+			</p:panelGrid>
+
+		</h:form>
+		
+		
+		
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,47 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets" template="/template/main.xhtml">
+
+	<ui:define name="body">
+		<h:form prependId="false"  >
+			<br />
+			<p:fieldset legend="#{messages['estado.label']}" toggleable="true" toggleSpeed="500">
+
+				<h:outputText value="Estado: " />
+				<p:selectOneMenu value="#{gastosPorEstadoMB.ufSelecionado}" converter="UfConverter" >
+					<f:selectItems value="#{gastosPorEstadoMB.estados}" var="estado" itemLabel="#{estado.nome}" itemValue="#{estado}" />
+				</p:selectOneMenu>
+				<p:commandButton value="Buscar" update="gastos" ajax="false" actionListener="#{gastosPorEstadoMB.atualizaEstado}" />
+				
+			</p:fieldset>
+			
+			
+
+			<p:panelGrid id="gastos">
+				<f:facet name="header">
+					<p:row>
+						<p:column>Qtd de Convênios</p:column>
+						<p:column>Valor Global</p:column>
+						<p:column>Valor de Repasse</p:column>
+						<p:column>Valor de Contra Partida</p:column>
+						<p:column>Valor de Contra Partida Financeira</p:column>
+						<p:column>Valor de Contra Partida de Bens de Serviço</p:column>
+					</p:row>
+				</f:facet>
+				<p:row>
+					<p:column>#{gastosPorEstadoMB.totalConvenios}</p:column>
+					<p:column>#{gastosPorEstadoMB.totalValorGlobal}</p:column>
+					<p:column>#{gastosPorEstadoMB.totalValorRepasse}</p:column>
+					<p:column>#{gastosPorEstadoMB.totalValorContraPartida}</p:column>
+					<p:column>#{gastosPorEstadoMB.totalValorContraPartidaFinanceira}</p:column>
+					<p:column>#{gastosPorEstadoMB.totalValorContraPartidaBensServico}</p:column>
+				</p:row>
+
+			</p:panelGrid>
+
+		</h:form>
+		
+		
+		
+	</ui:define>
+</ui:composition>

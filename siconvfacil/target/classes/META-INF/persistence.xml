@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+	<!-- If you are using JBoss AS7 with non JTA transaction then use this persistence-unit -->
+	<!--
+	-->
+	<persistence-unit name="siconvfacil-ds" transaction-type="RESOURCE_LOCAL">
+		<non-jta-data-source>java:jboss/datasources/PostgreSqlDS</non-jta-data-source>
+
+		<class>com.siconvfacil.domain.Uf</class>
+		<class>com.siconvfacil.domain.AreaAtuacaoProponente</class>
+		<class>com.siconvfacil.domain.SubareaAtuacaoProponente</class>
+		<class>com.siconvfacil.domain.ModalidadeProposta</class>
+		<class>com.siconvfacil.domain.PessoaResponsavel</class>
+		<class>com.siconvfacil.domain.NaturezaJuridica</class>
+		<class>com.siconvfacil.domain.Municipio</class>
+		<class>com.siconvfacil.domain.EsferaAdministrativa</class>
+		<class>com.siconvfacil.domain.Proponente</class>
+		<class>com.siconvfacil.domain.Orgao</class>
+		<class>com.siconvfacil.domain.SituacaoProposta</class>
+		<class>com.siconvfacil.domain.Proposta</class>
+		<class>com.siconvfacil.domain.SituacaoConvenio</class>
+		<class>com.siconvfacil.domain.SubsitucaoConvenio</class>
+		<class>com.siconvfacil.domain.SituacaoPublicacaoConvenio</class>
+		<class>com.siconvfacil.domain.Convenio</class>
+		<class>com.siconvfacil.domain.Programa</class>
+		<class>com.siconvfacil.domain.HabilitacaoAreaAtuacao</class>
+		<class>com.siconvfacil.domain.OrdemBancaria</class>
+		<class>com.siconvfacil.domain.UfPrograma</class>
+		<class>com.siconvfacil.domain.ProgramaAtendeA</class>
+		<class>com.siconvfacil.domain.Emenda</class>
+		<class>com.siconvfacil.domain.ConvenioPrograma</class>
+		<class>com.siconvfacil.domain.EspecieEmpenho</class>
+		<class>com.siconvfacil.domain.Empenho</class>
+		<class>com.siconvfacil.domain.PropostaPrograma</class>
+		<class>com.siconvfacil.domain.ComposicaoRepasseConvenio</class>
+		<class>com.siconvfacil.domain.ComposicaoRepasseProposta</class>
+		
+		<properties>
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="false" />
+			<!-- <property name="hibernate.hbm2ddl.auto" value="create-drop" /> -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+		</properties>
+	</persistence-unit>
+	
+
+</persistence>
